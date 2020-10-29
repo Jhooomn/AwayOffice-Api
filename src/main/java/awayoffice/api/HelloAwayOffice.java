@@ -9,7 +9,7 @@ public class HelloAwayOffice {
     
     @GetMapping(path = "/hello")
     public HelloWorldBean getHelloAway(){
-        return new HelloWorldBean("Hello");
+        return new HelloWorldBean("Welcome to Away Office");
     }
 
 
