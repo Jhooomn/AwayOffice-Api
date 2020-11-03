@@ -11,3 +11,13 @@ insert into employee(id,full_name,status,department,home_address,phone_number,em
     (5,'Test User 2','RESIGNED','Human Resource','Raatuse 22','+37255555555','test2@ut.ee'),
     (6,'Test User 3','VACATION','Inventory Manager','Raatuse 22','+37266666666','test3@ut.ee'),
     (7,'Test User 4','RETIRED','Quality Assurance','Raatuse 22','+37277777777','test4@ut.ee');
+
+
+insert into vendor(id, name, address, email)
+    values
+    (1, 'Muhammad Zubair', 'Raatuse 22', 'zubair@ut.ee'),
+    (2, 'Abdul Wahab', 'Raatuse 22', 'wahab@ut.ee'),
+    (3, 'Mubashar Shahzad', 'Raatuse 22', 'mubashar@ut.ee'),
+    (4, 'Muhammad Zubair', 'Raatuse 22', 'zubair@ut.ee'),
+    (5, 'Muhammad Zubair', 'Raatuse 22', 'zubair@ut.ee'),
+    (6, 'Muhammad Zubair', 'Raatuse 22', 'zubair@ut.ee');
