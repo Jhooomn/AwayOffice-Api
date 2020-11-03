@@ -16,7 +16,7 @@ public class HelloAwayOffice {
     @GetMapping(path = "/pv/{name}")
     public HelloWorldBean getHelloAwayName(@PathVariable String name){
 
-        return new HelloWorldBean(String.format("Welcome to Away Office %s",name));
+        return new HelloWorldBean(String.format("Welcome  to Away Office %s",name));
     }
 
 
