@@ -1,5 +1,5 @@
 -----------------------------------------------------------------------------------------------------
---PRE-DEFINED CONTENT
+--DUMMY DATA FOR DB
 -----------------------------------------------------------------------------------------------------
 
 insert into employee(id,full_name,status,department,home_address,phone_number,email_address)
@@ -12,7 +12,6 @@ insert into employee(id,full_name,status,department,home_address,phone_number,em
     (6,'Test User 3','VACATION','Inventory Manager','Raatuse 22','+37266666666','test3@ut.ee'),
     (7,'Test User 4','RETIRED','Quality Assurance','Raatuse 22','+37277777777','test4@ut.ee');
 
-
 insert into vendor(id, name, address, email)
     values
     (1, 'Muhammad Zubair', 'Raatuse 22', 'zubair@ut.ee'),
@@ -21,3 +20,15 @@ insert into vendor(id, name, address, email)
     (4, 'Muhammad Zubair', 'Raatuse 22', 'zubair@ut.ee'),
     (5, 'Muhammad Zubair', 'Raatuse 22', 'zubair@ut.ee'),
     (6, 'Muhammad Zubair', 'Raatuse 22', 'zubair@ut.ee');
+
+
+insert into asset_Model( id, name, description, model,manafacturer)
+    values
+    (0, 'Macbook Air', 'Notebook' , 'MacBook Air 13" 2015','Apple' ),
+    (1, 'Curved Monitor','Extended Display' ,'UltraSharp 38 Curved Monitor - U3818DW','Dell' ),
+    (2, 'Wireless Mouse', 'Pointing device' , 'WT525 Black','Asus' ),
+    ( 3, 'Macbook Pro',  'as' ,  'MacBook Pro 13" 2017','Apple' ),
+    ( 4, 'Curved Monitor',  'Monitor' , 'C27R50 27" FHD Curved Monitor', 'Samsung');
+
+
+

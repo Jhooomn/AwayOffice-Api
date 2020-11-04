@@ -1,8 +1,6 @@
 package awayoffice.api.hr.application.service;
 
-import awayoffice.api.hr.application.dto.EmployeeDTO;
 import awayoffice.api.hr.application.dto.VendorDTO;
-import awayoffice.api.hr.domain.model.Employee;
 import awayoffice.api.hr.domain.model.Vendor;
 import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
 import org.springframework.stereotype.Service;

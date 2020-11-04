@@ -1,15 +1,19 @@
-package awayoffice.api.assets.domain.model;
-import lombok.Data;
+/**
+ * @author  ABDUL WAHAB
+ * @version 1.0
+ * @see awayoffice.api.inventory.domain.model.AssetModel
+ */
 
-import javax.persistence.Column;
+package awayoffice.api.inventory.domain.model;
+
+import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.math.BigDecimal;
 
 @Entity
 @Data
-public class EquipmentEntry {
+public class AssetModel {
 
     @Id
     @GeneratedValue
