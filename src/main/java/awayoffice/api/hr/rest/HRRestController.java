@@ -1,6 +1,7 @@
 package awayoffice.api.hr.rest;
 
 import awayoffice.api.hr.application.dto.EmployeeDTO;
+import awayoffice.api.hr.application.dto.VendorDTO;
 import awayoffice.api.hr.application.service.HRService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,5 +26,16 @@ public class HRRestController {
         EmployeeDTO employeeDTO = hrService.getEmployeeById(id);
 
         return new ResponseEntity<>(employeeDTO, HttpStatus.OK);
+    }
+
+
+    //========[Vendor]========
+    //@Author: Mirlind
+    //Read [Vendor-01]
+    @GetMapping("/vendor/{id}")
+    public  ResponseEntity<VendorDTO> getVendorById(@PathVariable("id") Long id) throws Exception {
+        VendorDTO vendorDTO = hrService.getVendorById(id);
+
+        return new ResponseEntity<>(vendorDTO, HttpStatus.OK);
     }
 }
