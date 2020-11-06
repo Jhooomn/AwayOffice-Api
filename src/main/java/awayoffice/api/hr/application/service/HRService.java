@@ -123,8 +123,8 @@ public class HRService {
     //@Author: Mirlind
     //Create [Vendor-01]
     public VendorDTO createVendor(VendorDTO vendorDTO) throws Exception{
-
         Vendor vendor = new Vendor();
+        
         vendor.setName(vendorDTO.getName());
         vendor.setAddress(vendorDTO.getAddress());
         vendor.setEmail(vendorDTO.getEmail());
