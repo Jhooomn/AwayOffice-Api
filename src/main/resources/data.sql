@@ -17,9 +17,9 @@ insert into vendor(id, name, address, email)
     (1, 'Muhammad Zubair', 'Raatuse 22', 'zubair@ut.ee'),
     (2, 'Abdul Wahab', 'Raatuse 22', 'wahab@ut.ee'),
     (3, 'Mubashar Shahzad', 'Raatuse 22', 'mubashar@ut.ee'),
-    (4, 'Muhammad Zubair', 'Raatuse 22', 'zubair@ut.ee'),
-    (5, 'Muhammad Zubair', 'Raatuse 22', 'zubair@ut.ee'),
-    (6, 'Muhammad Zubair', 'Raatuse 22', 'zubair@ut.ee');
+    (4, 'Mirlind Murati', 'Raatuse 22', 'mirlind@ut.ee'),
+    (5, 'Ahmed Imam', 'Tallinn Kalamaja', 'ahmed@ut.ee'),
+    (6, 'Tanty', 'Bruno 34', 'tanty@ut.ee');
 
 
 insert into asset_Model( id, name, description, model,manafacturer)

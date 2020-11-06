@@ -107,8 +107,60 @@ public class HRService {
         if(vendor == null) {
             throw new Exception();
         }
-
         return vendorAssembler.toModel(vendor);
     }
 
+    //@Author: Mirlind
+    //Read [Vendor-02]
+    public CollectionModel<VendorDTO> getAllVendors() throws Exception{
+        List<Vendor> vendors = vendorRepository.findAll();
+        if(vendors.size() <= 0){
+            throw new Exception();
+        }
+        return vendorAssembler.toCollectionModel(vendors);
+    }
+
+    //@Author: Mirlind
+    //Create [Vendor-01]
+    public VendorDTO createVendor(VendorDTO vendorDTO) throws Exception{
+        Vendor vendor = new Vendor();
+        
+        vendor.setName(vendorDTO.getName());
+        vendor.setAddress(vendorDTO.getAddress());
+        vendor.setEmail(vendorDTO.getEmail());
+
+        vendorRepository.save(vendor);
+        return vendorAssembler.toModel(vendor);
+    }
+
+    //@Author: Mirlind
+    //Update [Vendor-01]
+    public VendorDTO updateVendor(VendorDTO vendorDTO) throws Exception{
+        Vendor vdr = vendorRepository.findById(vendorDTO.getId()).orElse(null);
+
+        if(vdr == null) {
+            throw new Exception();
+        }
+
+        Vendor vendor = new Vendor();
+        vdr.setName(vendorDTO.getName());
+        vdr.setAddress(vendorDTO.getAddress());
+        vdr.setEmail(vendorDTO.getEmail());
+
+        vendorRepository.save(vdr);
+        return vendorAssembler.toModel(vdr);
+    }
+
+    //@Author: Mirlind
+    //Update [Vendor-01]
+    public VendorDTO deleteVendor(Long id) throws Exception{
+        Vendor vdr = vendorRepository.findById(id).orElse(null);
+
+        if(vdr == null) {
+            throw new Exception();
+        }
+
+        vendorRepository.deleteById(vdr.getId());
+        return vendorAssembler.toModel(vdr);
+    }
 }
