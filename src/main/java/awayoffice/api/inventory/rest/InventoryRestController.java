@@ -24,6 +24,9 @@ public class InventoryRestController {
     @Autowired
     InventoryService inventoryService;
 
+    //========[AssetModel]========
+    //@Author: Abdul
+    //Read [AssetModel-01]
     @GetMapping("/assetmodel")
     public  ResponseEntity<CollectionModel<AssetModelDTO>> getAllAssetModels() throws Exception {
         CollectionModel<AssetModelDTO> assetModelDTOs = inventoryService.getAllAssetModels();
@@ -31,8 +34,10 @@ public class InventoryRestController {
         else{ return new ResponseEntity<>(assetModelDTOs, HttpStatus.OK); }
     }
 
-
-        @GetMapping("/assetmodel/{id}")
+    //========[AssetModel]========
+    //@Author: Abdul
+    //Read [AssetModel-02]
+    @GetMapping("/assetmodel/{id}")
     public  ResponseEntity<AssetModelDTO> getAssetModelById(@PathVariable("id") Long id) throws Exception {
         AssetModelDTO assetModelDTO = inventoryService.getAssetModelById(id);
         if(assetModelDTO == null){ throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Asset Model not found"); }
