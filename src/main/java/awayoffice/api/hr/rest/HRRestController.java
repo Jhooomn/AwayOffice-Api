@@ -3,6 +3,7 @@ package awayoffice.api.hr.rest;
 import awayoffice.api.hr.application.dto.EmployeeDTO;
 import awayoffice.api.hr.application.dto.VendorDTO;
 import awayoffice.api.hr.application.service.HRService;
+import awayoffice.api.hr.domain.model.Vendor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.http.HttpStatus;
@@ -69,4 +70,41 @@ public class HRRestController {
 
         return new ResponseEntity<>(vendorDTO, HttpStatus.OK);
     }
+
+    //@Author: Mirlind
+    //Read [Vendor-02]
+    @GetMapping("/vendors/")
+    public CollectionModel<VendorDTO> getAllVendors() throws Exception{
+        return hrService.getAllVendors();
+    }
+
+    //@Author: Mirlind
+    //Create [Vendor-01]
+    @PostMapping("/vendors")
+    public ResponseEntity<VendorDTO> createVendor(@RequestBody VendorDTO vendorDTO) throws Exception{
+        VendorDTO dto = hrService.createVendor(vendorDTO);
+
+        return new ResponseEntity<>(dto, HttpStatus.CREATED);
+    }
+
+    //@Author: Mirlind
+    //Update [Vendor-01]
+    @PutMapping("/vendors")
+    public ResponseEntity<VendorDTO> updateVendor(@RequestBody VendorDTO vendorDTO) throws Exception{
+        VendorDTO dto = hrService.updateVendor(vendorDTO);
+
+        return new ResponseEntity<>(dto, HttpStatus.OK);
+    }
+
+    //@Author: Mirlind
+    //Delete [Vendor-01]
+    @DeleteMapping("/vendors/{id}")
+    public ResponseEntity<VendorDTO> deleteVendorById(@PathVariable("id") Long id) throws Exception{
+        VendorDTO dto = hrService.deleteVendor(id);
+
+        return new ResponseEntity<>(dto, HttpStatus.OK);
+    }
+
+
+
 }
