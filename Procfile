@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -Ddatabase.url=$DATABASE_URL $JAVA_OPTS -jar target/*.jar --spring.profiles.active=production
+web: java -Dserver.port=$PORT -Ddatabase.url=$DATABASE`_URL $JAVA_OPTS -jar target/*.jar --spring.profiles.active=production
