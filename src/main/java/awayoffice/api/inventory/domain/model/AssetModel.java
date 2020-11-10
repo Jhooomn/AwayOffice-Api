@@ -25,6 +25,6 @@ public class AssetModel {
 
     String model;
 
-    String manafacturer;
+    String manufacturer;
 
 }

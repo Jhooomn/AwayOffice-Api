@@ -20,6 +20,8 @@ public class AssetModelAssembler extends RepresentationModelAssemblerSupport<Ass
         dto.setId(entity.getId());
         dto.setName(entity.getName());
         dto.setModel(entity.getModel());
+        dto.setManufacturer(entity.getManufacturer());
+
         return dto;
     }
 }

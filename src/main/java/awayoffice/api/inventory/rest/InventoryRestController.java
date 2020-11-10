@@ -5,6 +5,7 @@
  */
 
 package awayoffice.api.inventory.rest;
+import awayoffice.api.hr.application.dto.VendorDTO;
 import awayoffice.api.inventory.application.dto.AssetModelDTO;
 import awayoffice.api.inventory.application.service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,21 +41,38 @@ public class InventoryRestController {
     @GetMapping("/assetmodel/{id}")
     public  ResponseEntity<AssetModelDTO> getAssetModelById(@PathVariable("id") Long id) throws Exception {
         AssetModelDTO assetModelDTO = inventoryService.getAssetModelById(id);
-        if(assetModelDTO == null){ throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Asset Model not found"); }
-        return new ResponseEntity<>(assetModelDTO, HttpStatus.OK);
-
-//        try {
-//            AssetModelDTO assetModelDTO = inventoryService.getAssetModelById(id);
-//            if(assetModelDTO == null){
-//                System.out.println("its null");
-//                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "entity not found");
-//            }
-//            else{
-//            return new ResponseEntity<>(assetModelDTO, HttpStatus.OK);}}
-//        catch(Exception exc){
-//            throw new ResponseStatusException(
-//                    HttpStatus.INTERNAL_SERVER_ERROR, exc.getMessage(), exc);
-//            }
+        if (assetModelDTO == null) { throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Asset Model not found"); }
+        else {return new ResponseEntity<>(assetModelDTO, HttpStatus.OK);}
     }
 
-}
+    //========[AssetModel]========
+    //@Author: Abdul
+    //Create [AssetModel-01]
+    @PostMapping("/assetmodel")
+    public ResponseEntity<AssetModelDTO> createAssetModel(@RequestBody AssetModelDTO assetModelDTO) throws Exception{
+        AssetModelDTO dto = inventoryService.createAssetModel(assetModelDTO);
+        return new ResponseEntity<>(dto, HttpStatus.CREATED);
+    }
+
+    //========[AssetModel]========
+    //@Author: Abdul
+    //Update [AssetModel-01]
+    @PutMapping("/assetmodel")
+    public ResponseEntity<AssetModelDTO> updateAssetModel(@RequestBody AssetModelDTO assetModelDTO) throws Exception{
+        AssetModelDTO dto = inventoryService.updateAssetModel(assetModelDTO);
+        if (dto == null) { throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Asset Model to be updated not found"); }
+        else {return new ResponseEntity<>(dto, HttpStatus.OK);}
+    }
+
+    //========[AssetModel]========
+    //@Author: Abdul
+    //Delete [AssetModel-01]
+    @DeleteMapping("/assetmodel/{id}")
+    public ResponseEntity<AssetModelDTO> deleteAssetModel(@PathVariable("id") Long id) throws Exception{
+        AssetModelDTO dto = inventoryService.deleteAssetModel(id);
+        if (dto == null) { throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Asset Model to be deleted not found"); }
+        else {return new ResponseEntity<>(dto, HttpStatus.OK);}
+    }
+
+    }
+

@@ -14,5 +14,6 @@ public class AssetModelDTO extends RepresentationModel<AssetModelDTO> {
     Long id;
     String name;
     String model;
+    String manufacturer;
 
 }

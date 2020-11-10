@@ -22,7 +22,7 @@ insert into vendor(id, name, address, email)
     (6, 'Tanty', 'Bruno 34', 'tanty@ut.ee');
 
 
-insert into asset_Model( id, name, description, model,manafacturer)
+insert into asset_Model( id, name, description, model,manufacturer)
     values
     (0, 'Macbook Air', 'Notebook' , 'MacBook Air 13" 2015','Apple' ),
     (1, 'Curved Monitor','Extended Display' ,'UltraSharp 38 Curved Monitor - U3818DW','Dell' ),
