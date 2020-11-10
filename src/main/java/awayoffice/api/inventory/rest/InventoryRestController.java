@@ -21,10 +21,6 @@ import org.springframework.web.server.ResponseStatusException;
 @RequestMapping("/api/inventory")
 public class InventoryRestController {
 
-
-
-
-
   @Autowired InventoryService inventoryService;
 
   //========[AssetModel]========
@@ -35,8 +31,12 @@ public class InventoryRestController {
       throws Exception {
     CollectionModel<AssetModelDTO> assetModelDTOs =
         inventoryService.getAllAssetModels();
-    if (assetModelDTOs == null) {throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No Asset Models Found"); }
-    else { return new ResponseEntity<>(assetModelDTOs, HttpStatus.OK); }
+    if (assetModelDTOs == null) {
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND,
+                                        "No Asset Models Found");
+    } else {
+      return new ResponseEntity<>(assetModelDTOs, HttpStatus.OK);
+    }
   }
 
   //========[AssetModel]========
@@ -78,14 +78,6 @@ public class InventoryRestController {
       return new ResponseEntity<>(dto, HttpStatus.OK);
     }
   }
-
-
-
-
-
-
-
-
 
   //========[AssetModel]========
   //@Author: Abdul
