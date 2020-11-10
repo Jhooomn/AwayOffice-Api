@@ -4,7 +4,8 @@
 
 ### The APIs are architectured according to the modern Restful standards. 
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7e7f33f0fc5d29e1b28d)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/28663e80ab17cdc16844)
+
 
 The figure below shows the ERD mapping for the Project implemented in this API application.
 
