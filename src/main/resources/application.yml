@@ -1,6 +1,9 @@
 server:
   error:
-    include-stacktrace: on_trace_param
+     include-stacktrace: on_trace_param
+
+
+
 #spring:
 #  main:
 #    web-application-type: servlet
