@@ -1,0 +1,5 @@
+enabled: true
+commit_template: |
+  Code OK
+
+comments: true

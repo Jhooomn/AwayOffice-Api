@@ -12,14 +12,7 @@ insert into employee(id,full_name,status,department,home_address,phone_number,em
     (6,'Test User 3','VACATION','Inventory Manager','Raatuse 22','+37266666666','test3@ut.ee'),
     (7,'Test User 4','RETIRED','Quality Assurance','Raatuse 22','+37277777777','test4@ut.ee');
 
-INSERT INTO vendor (id, name, address, email)
+    INSERT INTO vendor (id, name, address, email)
         VALUES (1, 'Muhammad Zubair', 'Raatuse 22', 'zubair@ut.ee'), (2, 'Abdul Wahab', 'Raatuse 22', 'wahab@ut.ee'), (3, 'Mubashar Shahzad', 'Raatuse 22', 'mubashar@ut.ee'), (4, 'Mirlind Murati', 'Raatuse 22', 'mirlind@ut.ee'), (5, 'Ahmed Imam', 'Tallinn Kalamaja', 'ahmed@ut.ee'), (6, 'Tanty', 'Bruno 34', 'tanty@ut.ee');
 INSERT INTO asset_Model (id, name, description, model, manufacturer)
-        VALUES (0, 'Macbook Air', 'Notebook', 'MacBook Air 13" 2015', 'Apple'),
-
-        (1, 'Curved Monitor', 'Extended Display', 'UltraSharp 38 Curved Monitor - U3818DW', 'Dell'),
-
-        (2, 'Wireless Mouse', 'Pointing device', 'WT525 Black', 'Asus'), (3, 'Macbook Pro', 'as', 'MacBook Pro 13" 2017', 'Apple'), (4, 'Curved Monitor', 'Monitor', 'C27R50 27" FHD Curved Monitor', 'Samsung');
-
-
---Testing the restyled .io again 2
+        VALUES (0, 'Macbook Air', 'Notebook', 'MacBook Air 13" 2015', 'Apple'), (1, 'Curved Monitor', 'Extended Display', 'UltraSharp 38 Curved Monitor - U3818DW', 'Dell'), (2, 'Wireless Mouse', 'Pointing device', 'WT525 Black', 'Asus'), (3, 'Macbook Pro', 'as', 'MacBook Pro 13" 2017', 'Apple'), (4, 'Curved Monitor', 'Monitor', 'C27R50 27" FHD Curved Monitor', 'Samsung');
