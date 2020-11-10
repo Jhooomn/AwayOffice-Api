@@ -22,4 +22,4 @@ INSERT INTO asset_Model (id, name, description, model, manufacturer)
         (2, 'Wireless Mouse', 'Pointing device', 'WT525 Black', 'Asus'), (3, 'Macbook Pro', 'as', 'MacBook Pro 13" 2017', 'Apple'), (4, 'Curved Monitor', 'Monitor', 'C27R50 27" FHD Curved Monitor', 'Samsung');
 
 
---Testing the restyled .io again
+--Testing the restyled .io again 2
