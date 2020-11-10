@@ -6,25 +6,22 @@
 
 package awayoffice.api.inventory.domain.model;
 
-import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import lombok.Data;
 
 @Entity
 @Data
 public class AssetModel {
 
-    @Id
-    @GeneratedValue
-    Long id;
+  @Id @GeneratedValue Long id;
 
-    String name;
+  String name;
 
-    String description;
+  String description;
 
-    String model;
+  String model;
 
-    String manufacturer;
-
+  String manufacturer;
 }
