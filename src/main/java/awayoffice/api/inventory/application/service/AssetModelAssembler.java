@@ -12,14 +12,19 @@ import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSuppor
 import org.springframework.stereotype.Service;
 
 @Service
-public class AssetModelAssembler extends RepresentationModelAssemblerSupport<AssetModel, AssetModelDTO> {
-    public AssetModelAssembler() {super(InventoryService.class, AssetModelDTO.class);}
-    @Override
-    public AssetModelDTO toModel(AssetModel entity) {
-        AssetModelDTO dto = createModelWithId(entity.getId(),entity);
-        dto.setId(entity.getId());
-        dto.setName(entity.getName());
-        dto.setModel(entity.getModel());
-        return dto;
-    }
+public class AssetModelAssembler
+    extends RepresentationModelAssemblerSupport<AssetModel, AssetModelDTO> {
+  public AssetModelAssembler() {
+    super(InventoryService.class, AssetModelDTO.class);
+  }
+  @Override
+  public AssetModelDTO toModel(AssetModel entity) {
+    AssetModelDTO dto = createModelWithId(entity.getId(), entity);
+    dto.setId(entity.getId());
+    dto.setName(entity.getName());
+    dto.setModel(entity.getModel());
+    dto.setManufacturer(entity.getManufacturer());
+
+    return dto;
+  }
 }
