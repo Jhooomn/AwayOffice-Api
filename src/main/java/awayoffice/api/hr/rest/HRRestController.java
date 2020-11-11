@@ -64,7 +64,7 @@ public class HRRestController {
     //========[Vendor]========
     //@Author: Mirlind
     //Read [Vendor-01]
-    @GetMapping("/vendor/{id}")
+    @GetMapping("/vendors/{id}")
     public  ResponseEntity<VendorDTO> getVendorById(@PathVariable("id") Long id) throws Exception {
         VendorDTO vendorDTO = hrService.getVendorById(id);
 
@@ -73,7 +73,7 @@ public class HRRestController {
 
     //@Author: Mirlind
     //Read [Vendor-02]
-    @GetMapping("/vendors/")
+    @GetMapping("/vendors")
     public CollectionModel<VendorDTO> getAllVendors() throws Exception{
         return hrService.getAllVendors();
     }
