@@ -4,8 +4,13 @@
 
 ### The APIs are architectured according to the modern Restful standards. 
 
+#### Postman Production HTTP Requests collection:
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/28663e80ab17cdc16844)
+
+
+#### Postman Development HTTP Requests collection:
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/4a795536c01e0cdd8a18)
 
 
 ## The figure below shows the ERD mapping for the Project implemented in this API application.
@@ -36,7 +41,7 @@
    </td>
   </tr>
   <tr>
-   <td>/api/inventory/assetmodel
+   <td>/api/inventory/assetmodels
    </td>
    <td>Inventory
    </td>
