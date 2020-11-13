@@ -75,7 +75,7 @@ public class HRRestController {
 
     if (vendorDTO == null) {
       throw new ResponseStatusException(HttpStatus.NOT_FOUND,
-              "Vendor not found");
+                                        "Vendor not found");
     }
 
     return new ResponseEntity<>(vendorDTO, HttpStatus.OK);
@@ -84,11 +84,13 @@ public class HRRestController {
   //@Author: Mirlind
   // Read [Vendor-02]
   @GetMapping("/vendors")
-  public ResponseEntity<CollectionModel<VendorDTO>> getAllVendors() throws Exception {
+  public ResponseEntity<CollectionModel<VendorDTO>> getAllVendors()
+      throws Exception {
     CollectionModel<VendorDTO> vendorDTOS = hrService.getAllVendors();
 
-    if(vendorDTOS == null) {
-      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No Vendors Found");
+    if (vendorDTOS == null) {
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND,
+                                        "No Vendors Found");
     }
 
     return new ResponseEntity<>(vendorDTOS, HttpStatus.OK);
@@ -112,7 +114,8 @@ public class HRRestController {
     VendorDTO dto = hrService.updateVendor(vendorDTO);
 
     if (dto == null) {
-      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Vendor not found");
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND,
+                                        "Vendor not found");
     }
 
     return new ResponseEntity<>(dto, HttpStatus.OK);
@@ -126,7 +129,8 @@ public class HRRestController {
     VendorDTO dto = hrService.deleteVendor(id);
 
     if (dto == null) {
-      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Vendor not found");
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND,
+                                        "Vendor not found");
     }
 
     return new ResponseEntity<>(dto, HttpStatus.OK);
