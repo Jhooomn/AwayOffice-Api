@@ -8,7 +8,9 @@ import awayoffice.api.hr.domain.repository.EmployeeRepository;
 import awayoffice.api.hr.domain.repository.VendorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -105,7 +107,7 @@ public class HRService {
         Vendor vendor =  vendorRepository.findById(id).orElse(null);
 
         if(vendor == null) {
-            throw new Exception();
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Vendor not found");
         }
         return vendorAssembler.toModel(vendor);
     }
@@ -115,7 +117,7 @@ public class HRService {
     public CollectionModel<VendorDTO> getAllVendors() throws Exception{
         List<Vendor> vendors = vendorRepository.findAll();
         if(vendors.size() <= 0){
-            throw new Exception();
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No Vendors Available");
         }
         return vendorAssembler.toCollectionModel(vendors);
     }
@@ -139,7 +141,7 @@ public class HRService {
         Vendor vdr = vendorRepository.findById(vendorDTO.getId()).orElse(null);
 
         if(vdr == null) {
-            throw new Exception();
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Vendor not found");
         }
 
         Vendor vendor = new Vendor();
@@ -157,7 +159,7 @@ public class HRService {
         Vendor vdr = vendorRepository.findById(id).orElse(null);
 
         if(vdr == null) {
-            throw new Exception();
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Vendor not found");
         }
 
         vendorRepository.deleteById(vdr.getId());

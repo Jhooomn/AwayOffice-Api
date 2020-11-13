@@ -9,6 +9,7 @@ import org.springframework.hateoas.CollectionModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/hr")
@@ -72,14 +73,25 @@ public class HRRestController {
       throws Exception {
     VendorDTO vendorDTO = hrService.getVendorById(id);
 
+    if (vendorDTO == null) {
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND,
+              "Vendor not found");
+    }
+
     return new ResponseEntity<>(vendorDTO, HttpStatus.OK);
   }
 
   //@Author: Mirlind
   // Read [Vendor-02]
   @GetMapping("/vendors")
-  public CollectionModel<VendorDTO> getAllVendors() throws Exception {
-    return hrService.getAllVendors();
+  public ResponseEntity<CollectionModel<VendorDTO>> getAllVendors() throws Exception {
+    CollectionModel<VendorDTO> vendorDTOS = hrService.getAllVendors();
+
+    if(vendorDTOS == null) {
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No Vendors Found");
+    }
+
+    return new ResponseEntity<>(vendorDTOS, HttpStatus.OK);
   }
 
   //@Author: Mirlind
@@ -99,6 +111,10 @@ public class HRRestController {
   updateVendor(@RequestBody VendorDTO vendorDTO) throws Exception {
     VendorDTO dto = hrService.updateVendor(vendorDTO);
 
+    if (dto == null) {
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Vendor not found");
+    }
+
     return new ResponseEntity<>(dto, HttpStatus.OK);
   }
 
@@ -108,6 +124,10 @@ public class HRRestController {
   public ResponseEntity<VendorDTO> deleteVendorById(@PathVariable("id") Long id)
       throws Exception {
     VendorDTO dto = hrService.deleteVendor(id);
+
+    if (dto == null) {
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Vendor not found");
+    }
 
     return new ResponseEntity<>(dto, HttpStatus.OK);
   }
