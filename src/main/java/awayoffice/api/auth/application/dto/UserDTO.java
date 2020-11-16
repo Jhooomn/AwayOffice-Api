@@ -63,6 +63,8 @@ public class UserDTO implements UserDetails {
     }
 
     public static UserDTO create(User user){
+
+
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(user.getRole().toString()));
         return new UserDTO(user.getUsername(),user.getPassword(), authorities);
