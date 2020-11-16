@@ -26,7 +26,7 @@ public class InventoryRestController {
   //========[AssetModel]========
   //@Author: Abdul
   // Read [AssetModel-01]
-  @GetMapping("/assetmodel")
+  @GetMapping("/assetmodels")
   public ResponseEntity<CollectionModel<AssetModelDTO>> getAllAssetModels()
       throws Exception {
     CollectionModel<AssetModelDTO> assetModelDTOs =
