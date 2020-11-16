@@ -5,6 +5,4 @@
 
 package awayoffice.api.auth.domain.model;
 
-public enum UserRole {
-    ROLE_ADMIN, ROLE_USER
-}
+public enum UserRole { ROLE_ADMIN, ROLE_USER }

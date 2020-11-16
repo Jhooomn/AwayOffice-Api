@@ -15,23 +15,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequestMapping("/api/authenticate")
 @Slf4j
 public class AuthRestController {
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+  @Autowired private AuthenticationManager authenticationManager;
 
-    @Autowired
-    private JWTTokenProvider jwtTokenProvider;
+  @Autowired private JWTTokenProvider jwtTokenProvider;
 
-    @PostMapping()
-    public ResponseEntity authenticateUser(@RequestBody JwtRequestDTO requestDTO){
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(requestDTO.getUsername(),requestDTO.getPassword()));
-        String token = jwtTokenProvider.generateToken((UserDTO) authentication.getPrincipal());
-        log.info("Token Created {}", token);
-        return ResponseEntity.ok(new JwtResponseDTO(token));
-    }
+  @PostMapping()
+  public ResponseEntity
+  authenticateUser(@RequestBody JwtRequestDTO requestDTO) {
+    Authentication authentication = authenticationManager.authenticate(
+        new UsernamePasswordAuthenticationToken(requestDTO.getUsername(),
+                                                requestDTO.getPassword()));
+    String token =
+        jwtTokenProvider.generateToken((UserDTO)authentication.getPrincipal());
+    log.info("Token Created {}", token);
+    return ResponseEntity.ok(new JwtResponseDTO(token));
+  }
 }
