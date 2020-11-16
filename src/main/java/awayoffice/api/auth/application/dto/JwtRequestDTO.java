@@ -5,7 +5,6 @@
 
 package awayoffice.api.auth.application.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -16,6 +15,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class JwtRequestDTO {
-    private String username;
-    private String password;
+  private String username;
+  private String password;
 }

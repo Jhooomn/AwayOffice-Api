@@ -15,16 +15,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserAuthDetailsService implements UserDetailsService {
 
-    private final UserRepository userRepository;
+  private final UserRepository userRepository;
 
-    public UserAuthDetailsService(UserRepository userRepository){
-        this.userRepository = userRepository;
-    }
+  public UserAuthDetailsService(UserRepository userRepository) {
+    this.userRepository = userRepository;
+  }
 
-    @Override
-    public UserDTO loadUserByUsername(String s) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(s)
-                .orElseThrow(()-> new UsernameNotFoundException("Username" + s + "Not Found in DB"));
-        return UserDTO.create(user);
-    }
+  @Override
+  public UserDTO loadUserByUsername(String s) throws UsernameNotFoundException {
+    User user = userRepository.findByUsername(s).orElseThrow(
+        ()
+            -> new UsernameNotFoundException("Username" + s +
+                                             "Not Found in DB"));
+    return UserDTO.create(user);
+  }
 }
