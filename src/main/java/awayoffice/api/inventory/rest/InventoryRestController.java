@@ -33,7 +33,7 @@ public class InventoryRestController {
         inventoryService.getAllAssetModels();
     if (assetModelDTOs == null) {
       throw new ResponseStatusException(HttpStatus.NOT_FOUND,
-                                        "No Asset Models Found");
+                                        "No  Asset Models Found");
     } else {
       return new ResponseEntity<>(assetModelDTOs, HttpStatus.OK);
     }
