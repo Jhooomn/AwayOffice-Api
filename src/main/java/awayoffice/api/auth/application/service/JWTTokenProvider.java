@@ -33,8 +33,7 @@ public class JWTTokenProvider {
         .setIssuer("AwayOffice")
         .setSubject(userDTO.getUsername())
         .setIssuedAt(new Date())
-        .setExpiration(
-            new Date(new Date().getTime() + jwtExpirationInMs))
+        .setExpiration(new Date(new Date().getTime() + jwtExpirationInMs))
         .claim("Roles", roles)
         .signWith(SignatureAlgorithm.HS512, jwtSecret)
         .compact();
