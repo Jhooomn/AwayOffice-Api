@@ -26,14 +26,15 @@ public class InventoryRestController {
   //========[AssetModel]========
   //@Author: Abdul
   // Read [AssetModel-01]
-  @GetMapping("/assetmodel")
+  @CrossOrigin(origins = "http://localhost:3000")
+  @GetMapping("/assetmodels")
   public ResponseEntity<CollectionModel<AssetModelDTO>> getAllAssetModels()
       throws Exception {
     CollectionModel<AssetModelDTO> assetModelDTOs =
         inventoryService.getAllAssetModels();
     if (assetModelDTOs == null) {
       throw new ResponseStatusException(HttpStatus.NOT_FOUND,
-                                        "No Asset Models Found");
+                                        "No  Asset Models Found");
     } else {
       return new ResponseEntity<>(assetModelDTOs, HttpStatus.OK);
     }
