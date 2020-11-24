@@ -34,7 +34,7 @@ public class JWTTokenProvider {
         .setSubject(userDTO.getUsername())
         .setIssuedAt(new Date())
         .setExpiration(
-            new Date(new Date().getTime() + jwtExpirationInMs * 10000))
+            new Date(new Date().getTime() + jwtExpirationInMs))
         .claim("Roles", roles)
         .signWith(SignatureAlgorithm.HS512, jwtSecret)
         .compact();
