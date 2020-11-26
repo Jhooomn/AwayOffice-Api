@@ -77,6 +77,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                       "http://awayoffice-c2b26.web.app"));
     configuration.setAllowedMethods(
         Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE"));
+
+    configuration.setAllowCredentials(true);
+    configuration.setAllowedHeaders(Arrays.asList("*"));
+
     UrlBasedCorsConfigurationSource source =
         new UrlBasedCorsConfigurationSource();
     source.registerCorsConfiguration("/**", configuration);
