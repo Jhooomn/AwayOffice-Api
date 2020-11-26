@@ -22,7 +22,6 @@ public class AuthRestController {
   @Autowired private JWTTokenProvider jwtTokenProvider;
 
   @PostMapping()
-  @CrossOrigin(origins = "http://localhost:3000")
   public ResponseEntity
   authenticateUser(@RequestBody JwtRequestDTO requestDTO) {
     Authentication authentication = authenticationManager.authenticate(
