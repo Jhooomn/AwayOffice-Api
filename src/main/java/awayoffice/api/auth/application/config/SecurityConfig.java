@@ -8,6 +8,7 @@ package awayoffice.api.auth.application.config;
 import awayoffice.api.auth.application.exception.InvalidLoginAttemptHandler;
 import awayoffice.api.auth.application.filter.JwtAuthenticationFilter;
 import awayoffice.api.auth.application.service.UserAuthDetailsService;
+import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,6 +20,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
@@ -63,6 +67,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .authenticated();
     http.addFilterBefore(jwtAuthenticationFilter(),
                          UsernamePasswordAuthenticationFilter.class);
+  }
+
+  @Bean
+  CorsConfigurationSource corsConfigurationSource() {
+    CorsConfiguration configuration = new CorsConfiguration();
+    configuration.setAllowedOrigins(
+        Arrays.asList("http://localhost:3000", "https://awayoffice.web.app",
+                      "http://awayoffice-c2b26.web.app"));
+    configuration.setAllowedMethods(
+        Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE"));
+
+    configuration.setAllowCredentials(true);
+    configuration.setAllowedHeaders(Arrays.asList("*"));
+
+    UrlBasedCorsConfigurationSource source =
+        new UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration("/**", configuration);
+    return source;
   }
 
   @Bean

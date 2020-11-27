@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/authenticate")
 @Slf4j
+@CrossOrigin(origins = {"http://localhost:3000","https://awayoffice.web.app"})
+
 public class AuthRestController {
 
   @Autowired private AuthenticationManager authenticationManager;
@@ -22,7 +24,6 @@ public class AuthRestController {
   @Autowired private JWTTokenProvider jwtTokenProvider;
 
   @PostMapping()
-  @CrossOrigin(origins = {"http://localhost:3000","https://awayoffice.web.app"})
   public ResponseEntity
   authenticateUser(@RequestBody JwtRequestDTO requestDTO) {
     Authentication authentication = authenticationManager.authenticate(
