@@ -19,7 +19,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/inventory")
-@CrossOrigin(origins = {"http://localhost:3000","https://awayoffice.web.app"})
+@CrossOrigin(origins = {"http://localhost:3000", "https://awayoffice.web.app"})
 public class InventoryRestController {
 
   @Autowired InventoryService inventoryService;
