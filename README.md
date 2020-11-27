@@ -27,6 +27,7 @@
 ##### Each row shows a given API endpoint or URI, HTTP Verb and a brief description of the API.
 
 
+
 <table>
   <tr>
    <td><strong>URI</strong>
@@ -41,7 +42,19 @@
    </td>
   </tr>
   <tr>
-   <td>/api/inventory/assetmodels
+   <td>/api/authenticate
+   </td>
+   <td>Auth
+   </td>
+   <td>POST
+   </td>
+   <td>Get a Bearer Token
+   </td>
+   <td>Zubair
+   </td>
+  </tr>
+  <tr>
+   <td>/api/inventory/assetmodel
    </td>
    <td>Inventory
    </td>
@@ -221,5 +234,4 @@
    </td>
   </tr>
 </table>
-
 
