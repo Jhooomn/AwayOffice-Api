@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/authenticate")
 @Slf4j
+@CrossOrigin(origins = {"http://localhost:3000", "https://awayoffice.web.app"})
+
 public class AuthRestController {
 
   @Autowired private AuthenticationManager authenticationManager;

@@ -19,6 +19,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/inventory")
+@CrossOrigin(origins = {"http://localhost:3000", "https://awayoffice.web.app"})
 public class InventoryRestController {
 
   @Autowired InventoryService inventoryService;
@@ -26,7 +27,6 @@ public class InventoryRestController {
   //========[AssetModel]========
   //@Author: Abdul
   // Read [AssetModel-01]
-  @CrossOrigin(origins = "http://localhost:3000")
   @GetMapping("/assetmodels")
   public ResponseEntity<CollectionModel<AssetModelDTO>> getAllAssetModels()
       throws Exception {
