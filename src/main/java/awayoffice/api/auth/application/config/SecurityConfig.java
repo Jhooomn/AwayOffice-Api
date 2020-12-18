@@ -8,7 +8,6 @@ package awayoffice.api.auth.application.config;
 import awayoffice.api.auth.application.exception.InvalidLoginAttemptHandler;
 import awayoffice.api.auth.application.filter.JwtAuthenticationFilter;
 import awayoffice.api.auth.application.service.UserAuthDetailsService;
-import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,20 +23,25 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.Arrays;
+
 @Configuration
 @EnableWebSecurity
+
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-  @Autowired private UserAuthDetailsService userAuthDetailsService;
+  @Autowired
+  private UserAuthDetailsService userAuthDetailsService;
 
-  @Autowired private InvalidLoginAttemptHandler invalidLoginAttemptHandler;
+  @Autowired
+  private InvalidLoginAttemptHandler invalidLoginAttemptHandler;
 
   @Override
   public void
   configure(AuthenticationManagerBuilder authenticationManagerBuilder)
-      throws Exception {
+          throws Exception {
     authenticationManagerBuilder.userDetailsService(userAuthDetailsService)
-        .passwordEncoder(passwordEncoder());
+            .passwordEncoder(passwordEncoder());
   }
 
   @Bean
