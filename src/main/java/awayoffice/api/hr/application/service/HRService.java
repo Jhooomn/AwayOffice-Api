@@ -7,12 +7,25 @@ import awayoffice.api.hr.domain.model.Vendor;
 import awayoffice.api.hr.domain.repository.EmployeeRepository;
 import awayoffice.api.hr.domain.repository.VendorRepository;
 import java.util.List;
+
+import awayoffice.api.inventory.application.dto.AssetModelDTO;
+import awayoffice.api.inventory.application.service.InventoryService;
+import awayoffice.api.inventory.domain.repository.AssetModelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+/**
+ * {@link awayoffice.api.hr.rest.HRRestController} to access {@link EmployeeRepository}
+ * and {@link VendorRepository} instances.
+ * @see HRService
+ *
+ * @author Zubair and Mirlind
+ * @version 1.0
+ * @since 1.0
+ */
 @Service
 public class HRService {
 
@@ -96,9 +109,16 @@ public class HRService {
     return employeeAssembler.toModel(emp);
   }
 
-  //========[Vendor]========
-  //@Author: Mirlind
-  // Read [Vendor-01]
+  /**
+   * this is a helper function for fetching vendors by their IDs
+   * @author Mirlind Murati
+   *
+   * @param id - id of the VendorDTO to be fetched
+   * @return VendorDTO
+   * {@link VendorDTO}
+   * @see VendorDTO
+   * @since 1.0
+   */
   public VendorDTO getVendorById(Long id) throws Exception {
     Vendor vendor = vendorRepository.findById(id).orElse(null);
 
@@ -109,8 +129,15 @@ public class HRService {
     return vendorAssembler.toModel(vendor);
   }
 
-  //@Author: Mirlind
-  // Read [Vendor-02]
+  /**
+   * this is a helper function for fetching all vendors
+   * @author Mirlind Murati
+   *
+   * @return CollectionModel of VendorDTOs
+   * {@link VendorDTO}
+   * @see VendorDTO
+   * @since 1.0
+   */
   public CollectionModel<VendorDTO> getAllVendors() throws Exception {
     List<Vendor> vendors = vendorRepository.findAll();
     if (vendors.size() <= 0) {
@@ -120,8 +147,15 @@ public class HRService {
     return vendorAssembler.toCollectionModel(vendors);
   }
 
-  //@Author: Mirlind
-  // Create [Vendor-01]
+  /**
+   * this is a helper function for creating new vendors
+   * @author Mirlind Murati
+   *
+   * @return VendorDTOs
+   * {@link VendorDTO}
+   * @see VendorDTO
+   * @since 1.0
+   */
   public VendorDTO createVendor(VendorDTO vendorDTO) throws Exception {
     Vendor vendor = new Vendor();
 
@@ -133,8 +167,15 @@ public class HRService {
     return vendorAssembler.toModel(vendor);
   }
 
-  //@Author: Mirlind
-  // Update [Vendor-01]
+  /**
+   * this is a helper function for updating existing vendors
+   * @author Mirlind Murati
+   *
+   * @return VendorDTOs
+   * {@link VendorDTO}
+   * @see VendorDTO
+   * @since 1.0
+   */
   public VendorDTO updateVendor(VendorDTO vendorDTO) throws Exception {
     Vendor vdr = vendorRepository.findById(vendorDTO.getId()).orElse(null);
 
@@ -152,8 +193,15 @@ public class HRService {
     return vendorAssembler.toModel(vdr);
   }
 
-  //@Author: Mirlind
-  // Update [Vendor-01]
+  /**
+   * this is a helper function for deleting existing vendors
+   * @author Mirlind Murati
+   *
+   * @return VendorDTOs
+   * {@link VendorDTO}
+   * @see VendorDTO
+   * @since 1.0
+   */
   public VendorDTO deleteVendor(Long id) throws Exception {
     Vendor vdr = vendorRepository.findById(id).orElse(null);
 
