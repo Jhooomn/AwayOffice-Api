@@ -9,6 +9,8 @@ import awayoffice.api.auth.application.dto.UserDTO;
 import awayoffice.api.auth.application.service.JWTTokenProvider;
 import awayoffice.api.auth.application.service.UserAuthDetailsService;
 import java.io.IOException;
+import java.util.Objects;
+
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -40,7 +42,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String userNameFromToken = tokenProvider.getUserNameFromToken(jwt);
         UserDTO userDetails =
             userDetailsService.loadUserByUsername(userNameFromToken);
-        System.out.println(userDetails.getAuthorities());
+        userDetails.getAuthorities()
+        .stream()
+        .filter(authority -> !Objects.isNull(authority))
+        .forEach(authority -> {
+          log.info(authority.toString());
+        });
+
         UsernamePasswordAuthenticationToken authenticationToken =
             new UsernamePasswordAuthenticationToken(
                 userDetails, null, userDetails.getAuthorities());
