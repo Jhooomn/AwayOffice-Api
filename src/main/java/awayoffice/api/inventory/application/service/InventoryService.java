@@ -1,8 +1,4 @@
-/**
- * @author  ABDUL WAHAB
- * @version 1.0
- * @see awayoffice.api.inventory
- */
+
 package awayoffice.api.inventory.application.service;
 
 import awayoffice.api.inventory.application.dto.AssetModelDTO;
@@ -13,6 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.stereotype.Service;
 
+/**
+ * {@link awayoffice.api.inventory.rest.InventoryRestController} to access {@link AssetModelRepository} instances.
+ * @see InventoryService
+ *
+ * @author Abdul Wahab
+ * @version 1.0
+ * @since 1.0
+ */
 @Service
 public class InventoryService {
 
@@ -20,9 +24,18 @@ public class InventoryService {
 
   @Autowired AssetModelAssembler assetModelAssembler;
 
-  //========[AssetModel]========
-  //@Author: Abdul
-  // Read [AssetModel-01]
+  /**
+   * this is a helper function for  the above
+   * 2 endpoint mappings
+   * for Code Refactoring
+   * @author Abdul Wahab
+   *
+   * @param id - id of the AssetMODELTO to be fetched
+   * @return AssetModelDTO
+   * {@link AssetModelDTO}
+   * @see AssetModelDTO
+   * @since 1.0
+   */
   public AssetModelDTO getAssetModelById(Long id) {
     AssetModel assetModel = assetModelRepository.findById(id).orElse(null);
     if (assetModel != null) {

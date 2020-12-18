@@ -9,7 +9,7 @@
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/28663e80ab17cdc16844)
 
 
-#### Postman Development HTTP Requests collection:
+#### Postman Development HTTP Requests collect ion:
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/4a795536c01e0cdd8a18)
 
 
