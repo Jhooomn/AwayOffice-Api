@@ -8,9 +8,6 @@ import awayoffice.api.hr.domain.repository.EmployeeRepository;
 import awayoffice.api.hr.domain.repository.VendorRepository;
 import java.util.List;
 
-import awayoffice.api.inventory.application.dto.AssetModelDTO;
-import awayoffice.api.inventory.application.service.InventoryService;
-import awayoffice.api.inventory.domain.repository.AssetModelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.http.HttpStatus;
@@ -40,20 +37,22 @@ public class HRService {
   //========[Employee]========
   //@Author: Zubair
   // Read [Emp-01]
-  public EmployeeDTO getEmployeeById(Long id) throws Exception {
+  public EmployeeDTO getEmployeeById(Long id) {
     Employee employee = employeeRepository.findById(id).orElse(null);
     if (employee == null) {
-      throw new Exception();
+      //TODO:  create a dedicated exception.
+      throw new RuntimeException("Employee does not exist");
     }
     return employeeAssembler.toModel(employee);
   }
 
   //@Author: Zubair
   // Read [Emp-02]
-  public CollectionModel<EmployeeDTO> getAllEmployees() throws Exception {
+  public CollectionModel<EmployeeDTO> getAllEmployees() {
     List<Employee> employees = employeeRepository.findAll();
-    if (employees.size() <= 0) {
-      throw new Exception();
+    if (employees.isEmpty()) {
+      //TODO:  create a dedicated exception.
+      throw new RuntimeException("There are not employees in db!");
     }
     return employeeAssembler.toCollectionModel(employees);
   }
@@ -81,8 +80,9 @@ public class HRService {
     Employee emp =
         employeeRepository.findById(employeeDTO.getId()).orElse(null);
     if (emp == null) {
-      throw new Exception();
-    }
+      //TODO:  create a dedicated exception.
+      throw new RuntimeException("Employee does not exist!");  
+      }
 
     Employee employee = new Employee();
     employee.setId(employeeDTO.getId());
@@ -99,11 +99,12 @@ public class HRService {
 
   //@Author: Zubair
   // Delete [Emp-01]
-  public EmployeeDTO deleteEmployee(Long id) throws Exception {
+  public EmployeeDTO deleteEmployee(Long id)  {
     Employee emp = employeeRepository.findById(id).orElse(null);
     if (emp == null) {
-      throw new Exception();
-    }
+      //TODO:  create a dedicated exception.
+      throw new RuntimeException("Employee does not exist!");    
+    } 
 
     employeeRepository.deleteById(emp.getId());
     return employeeAssembler.toModel(emp);
@@ -119,12 +120,11 @@ public class HRService {
    * @see VendorDTO
    * @since 1.0
    */
-  public VendorDTO getVendorById(Long id) throws Exception {
+  public VendorDTO getVendorById(Long id) {
     Vendor vendor = vendorRepository.findById(id).orElse(null);
 
     if (vendor == null) {
-      throw new ResponseStatusException(HttpStatus.NOT_FOUND,
-                                        "Vendor not found");
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Vendor not found");
     }
     return vendorAssembler.toModel(vendor);
   }
@@ -138,9 +138,9 @@ public class HRService {
    * @see VendorDTO
    * @since 1.0
    */
-  public CollectionModel<VendorDTO> getAllVendors() throws Exception {
+  public CollectionModel<VendorDTO> getAllVendors() {
     List<Vendor> vendors = vendorRepository.findAll();
-    if (vendors.size() <= 0) {
+    if (vendors.isEmpty()) {
       throw new ResponseStatusException(HttpStatus.NOT_FOUND,
                                         "No Vendors Available");
     }
@@ -156,7 +156,7 @@ public class HRService {
    * @see VendorDTO
    * @since 1.0
    */
-  public VendorDTO createVendor(VendorDTO vendorDTO) throws Exception {
+  public VendorDTO createVendor(VendorDTO vendorDTO)  {
     Vendor vendor = new Vendor();
 
     vendor.setName(vendorDTO.getName());
@@ -176,7 +176,7 @@ public class HRService {
    * @see VendorDTO
    * @since 1.0
    */
-  public VendorDTO updateVendor(VendorDTO vendorDTO) throws Exception {
+  public VendorDTO updateVendor(VendorDTO vendorDTO) {
     Vendor vdr = vendorRepository.findById(vendorDTO.getId()).orElse(null);
 
     if (vdr == null) {
@@ -202,7 +202,7 @@ public class HRService {
    * @see VendorDTO
    * @since 1.0
    */
-  public VendorDTO deleteVendor(Long id) throws Exception {
+  public VendorDTO deleteVendor(Long id)  {
     Vendor vdr = vendorRepository.findById(id).orElse(null);
 
     if (vdr == null) {
