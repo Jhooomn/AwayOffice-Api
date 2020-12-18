@@ -15,6 +15,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class UserDTO implements UserDetails {
 
+  /**
+   *
+   */
+  private static final long serialVersionUID = 8393020864180336840L;
   private String username;
   private String password;
 
