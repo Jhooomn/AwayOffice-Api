@@ -24,7 +24,7 @@ public class AuthRestController {
   @Autowired private JWTTokenProvider jwtTokenProvider;
 
   @PostMapping()
-  public ResponseEntity
+  public ResponseEntity<JwtResponseDTO>
   authenticateUser(@RequestBody JwtRequestDTO requestDTO) {
     Authentication authentication = authenticationManager.authenticate(
         new UsernamePasswordAuthenticationToken(requestDTO.getUsername(),
